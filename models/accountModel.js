@@ -5,7 +5,7 @@ const accountSchema = new Schema({
     firstname: { type: String, required: true },
     lastname: { type: String, required: true },
     email: { type: String, required: true, unique: true, match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ },
-    password: { type: String, required: true, match: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/ },
+    password: { type: String, required: true },
     phone: { type: String, required: true, unique: true, match: /^\d{10}$/ },
     subscriptionType: { type: String,
         enum: ['free', 'one', 'three', 'six'],

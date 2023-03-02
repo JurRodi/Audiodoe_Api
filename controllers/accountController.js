@@ -1,7 +1,9 @@
+const bcrypt = require('bcryptjs');
 const Account = require('../models/accountModel');
 
 const createAccount = async (req, res) => {
-    const { firstname, lastname, email, password, phone, subscriptionType, accountType } = req.body;
+    const { firstname, lastname, email, phone, subscriptionType, accountType } = req.body;
+    let password = bcrypt.hashSync(req.body.password, 10);
     const account = new Account({ firstname, lastname, email, password, phone, subscriptionType, accountType });
     try {
         await account.save();
