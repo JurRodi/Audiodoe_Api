@@ -21,6 +21,21 @@ const createUser = async (req, res) => {
   }
 }
 
+const updateUser = async (req, res) => {
+  const { avatar, userId } = req.body
+  const user = await User.findById(userId)
+  if (!user) return res.status(400).json({ message: 'no user found' })
+  try {
+    user.avatar = avatar
+    user.updatedAt = Date.now()
+    await user.save()
+    res.status(200).json({ message: 'user updated' })
+  } catch (err) {
+    res.status(400).json({ message: 'user not updated' })
+  }
+}
+
 module.exports = {
   createUser,
+  updateUser,
 }
