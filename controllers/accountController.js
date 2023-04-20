@@ -47,21 +47,7 @@ const login = async (req, res) => {
   }
 }
 
-const updateUserAmount = async (account, res) => {
-  res.json({ message: 'updateUserAmount' })
-  const newAmount = 0
-  try {
-    Account.findByIdAndUpdate(account.id, {
-      userAmount: newAmount,
-    })
-    res.status(200).json({ message: 'user amount updated' })
-  } catch (err) {
-    res.status(400).json({ message: 'user amount not updated' })
-  }
-}
-
 module.exports = {
   createAccount,
   login,
-  updateUserAmount,
 }
