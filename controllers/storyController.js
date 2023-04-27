@@ -11,6 +11,16 @@ const create = async (req, res) => {
   }
 }
 
+const getAll = async (req, res) => {
+  try {
+    const stories = await Story.find()
+    res.status(200).json(stories)
+  } catch (error) {
+    res.status(400).json({ message: 'stories not found' })
+  }
+}
+
 module.exports = {
   create,
+  getAll,
 }
