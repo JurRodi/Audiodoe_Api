@@ -6,5 +6,6 @@ const auth = require('../middleware/auth')
 router.post('/create', auth, storyController.create)
 router.post('/', storyController.getAll)
 router.get('/:id', storyController.getById)
+router.get('/:id/:pageNumber', auth, storyController.getPageById)
 
 module.exports = router

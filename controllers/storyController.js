@@ -1,4 +1,5 @@
 const Story = require('../models/storyModel')
+const Page = require('../models/pageModel')
 
 const create = async (req, res) => {
   const { title, thumbnail, discription, pageCount } = req.body
@@ -30,8 +31,19 @@ const getById = async (req, res) => {
   }
 }
 
+const getPageById = async (req, res) => {
+  const { id, pageNumber } = req.params
+  try {
+    const page = await Page.findOne({ storyId: id, pageNumber: pageNumber })
+    res.status(200).json(page)
+  } catch (error) {
+    res.status(400).json({ message: 'page not found' })
+  }
+}
+
 module.exports = {
   create,
   getAll,
   getById,
+  getPageById,
 }
