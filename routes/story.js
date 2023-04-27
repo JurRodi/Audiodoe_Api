@@ -5,5 +5,6 @@ const auth = require('../middleware/auth')
 
 router.post('/create', auth, storyController.create)
 router.post('/', storyController.getAll)
+router.get('/:id', storyController.getById)
 
 module.exports = router

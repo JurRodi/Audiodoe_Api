@@ -20,7 +20,18 @@ const getAll = async (req, res) => {
   }
 }
 
+const getById = async (req, res) => {
+  const { id } = req.params
+  try {
+    const story = await Story.findById(id)
+    res.status(200).json(story)
+  } catch (error) {
+    res.status(400).json({ message: 'story not found' })
+  }
+}
+
 module.exports = {
   create,
   getAll,
+  getById,
 }
