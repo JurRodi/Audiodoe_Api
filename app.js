@@ -11,6 +11,7 @@ mongoose.connect(process.env.MONGO_URI)
 var userRouter = require('./routes/user')
 var accountRouter = require('./routes/account')
 var storyRouter = require('./routes/story')
+var pageRouter = require('./routes/page')
 
 var app = express()
 
@@ -22,6 +23,7 @@ app.use(cookieParser())
 app.use('/user', userRouter)
 app.use('/account', accountRouter)
 app.use('/story', storyRouter)
+app.use('/page', pageRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
