@@ -68,9 +68,27 @@ const getAccountById = async (req, res) => {
   }
 }
 
+const updateAccount = async (req, res) => {
+  const { id, firstname, lastname, email, phone } = req.body
+  const user = await Account.findById(id)
+  if (!user) return res.status(400).json({ message: 'no account found' })
+  try {
+    user.firstname = firstname
+    user.lastname = lastname
+    user.email = email
+    user.phone = phone
+    user.updatedAt = Date.now()
+    await user.save()
+    res.status(200).json({ message: 'account updated' })
+  } catch (err) {
+    res.status(400).json({ message: 'account not updated' })
+  }
+}
+
 module.exports = {
   createAccount,
   login,
   getUsers,
   getAccountById,
+  updateAccount,
 }
