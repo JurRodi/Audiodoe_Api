@@ -8,5 +8,6 @@ router.post('/login', accountController.login)
 router.post('/users', auth, accountController.getUsers)
 router.get('/:id', auth, accountController.getAccountById)
 router.put('/update', auth, accountController.updateAccount)
+router.delete('/delete', auth, accountController.deleteAccount)
 
 module.exports = router

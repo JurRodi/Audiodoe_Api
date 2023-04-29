@@ -85,10 +85,21 @@ const updateAccount = async (req, res) => {
   }
 }
 
+const deleteAccount = async (req, res) => {
+  const { id } = req.body
+  try {
+    await Account.findByIdAndDelete(id)
+    res.status(200).json({ message: 'account deleted' })
+  } catch (err) {
+    res.status(400).json({ message: 'account not deleted' })
+  }
+}
+
 module.exports = {
   createAccount,
   login,
   getUsers,
   getAccountById,
   updateAccount,
+  deleteAccount,
 }
