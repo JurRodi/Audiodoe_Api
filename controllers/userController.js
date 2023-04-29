@@ -6,7 +6,7 @@ const createUser = async (req, res) => {
   const user = new User({ username, avatar, dateOfBirth, accountId })
   const account = await Account.findById(accountId)
   if (!account) return res.status(400).json({ message: 'no account found' })
-  if (account.userCount >= account.maxUser)
+  if (account.userCount >= account.maxUsers)
     return res
       .status(400)
       .json({ message: 'account has reached its user limit.' })
