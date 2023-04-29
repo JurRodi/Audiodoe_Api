@@ -58,8 +58,19 @@ const getUsers = async (req, res) => {
   }
 }
 
+const getAccountById = async (req, res) => {
+  const { id } = req.params
+  try {
+    const account = await Account.findById(id)
+    res.status(200).json(account)
+  } catch (err) {
+    res.status(400).json({ message: 'account not found' })
+  }
+}
+
 module.exports = {
   createAccount,
   login,
   getUsers,
+  getAccountById,
 }
