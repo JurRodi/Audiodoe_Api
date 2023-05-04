@@ -27,6 +27,20 @@ const create = async (req, res) => {
   })
 }
 
+const getPage = async (req, res) => {
+  const { storyId, pageNumber } = req.params
+  try {
+    const page = await Page.findOne({
+      storyId: storyId,
+      pageNumber: pageNumber,
+    })
+    res.status(200).json(page)
+  } catch (error) {
+    res.status(400).json({ message: 'page not found' })
+  }
+}
+
 module.exports = {
   create,
+  getPage,
 }
