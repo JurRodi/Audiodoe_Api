@@ -9,7 +9,8 @@ const EAgeGroup = {
 const storySchema = new Schema({
   title: { type: String, required: true },
   thumbnail: { type: String, required: true },
-  discription: { type: String, required: true },
+  backGroundColor: { type: String, required: true },
+  description: { type: String, required: true },
   duration: { type: String, required: true },
   ageGroup: { type: String, EAgeGroup, required: true },
   pageCount: { type: Number, required: true },

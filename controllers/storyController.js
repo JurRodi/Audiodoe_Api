@@ -1,8 +1,24 @@
 const Story = require('../models/storyModel')
 
 const create = async (req, res) => {
-  const { title, thumbnail, discription, pageCount } = req.body
-  const story = new Story({ title, thumbnail, discription, pageCount })
+  const {
+    title,
+    thumbnail,
+    backGroundColor,
+    description,
+    duration,
+    ageGroup,
+    pageCount,
+  } = req.body
+  const story = new Story({
+    title,
+    thumbnail,
+    backGroundColor,
+    description,
+    duration,
+    ageGroup,
+    pageCount,
+  })
   try {
     await story.save()
     res.status(201).json({ message: 'story created' })
