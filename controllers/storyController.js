@@ -9,6 +9,7 @@ const create = async (req, res) => {
     duration,
     ageGroup,
     pageCount,
+    category,
   } = req.body
   const story = new Story({
     title,
@@ -18,6 +19,7 @@ const create = async (req, res) => {
     duration,
     ageGroup,
     pageCount,
+    category,
   })
   try {
     await story.save()

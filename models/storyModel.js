@@ -11,9 +11,10 @@ const storySchema = new Schema({
   thumbnail: { type: String, required: true },
   backGroundColor: { type: String, required: true },
   description: { type: String, required: true },
-  duration: { type: String, required: true },
+  duration: { type: Number, required: true },
   ageGroup: { type: String, EAgeGroup, required: true },
   pageCount: { type: Number, required: true },
+  category: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 })
