@@ -1,4 +1,8 @@
-const whiteList = ['http://localhost:3000', 'https://app.audiodoe.com']
+const whiteList = [
+  'http://localhost:4201',
+  'http://localhost:4202',
+  'https://app.audiodoe.com',
+]
 
 const corsOptions = {
   origin: function (origin, callback) {
