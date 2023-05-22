@@ -30,11 +30,12 @@ const create = async (req, res) => {
 }
 
 const getAll = async (req, res) => {
+  const filter = req.body.filterValues
   try {
-    const stories = await Story.find()
+    const stories = await Story.find(filter)
     res.status(200).json(stories)
   } catch (error) {
-    res.status(400).json({ message: 'stories not found' })
+    res.status(400).json({ message: 'stories not found', error })
   }
 }
 
