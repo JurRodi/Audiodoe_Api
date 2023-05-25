@@ -31,8 +31,17 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
   const filter = req.body.filterValues
+  const search = req.body.searchTerm
+  let params = {
+    title: { $regex: search },
+  }
+
+  if (filter.category !== null) {
+    params.category = filter.category
+  }
+
   try {
-    const stories = await Story.find(filter)
+    let stories = await Story.find(params)
     res.status(200).json(stories)
   } catch (error) {
     res.status(400).json({ message: 'stories not found', error })
