@@ -5,16 +5,30 @@ const create = async (req, res) => {
     const {
       pageNumber,
       backgroundImage,
-      animationImages,
+      backgroundColor,
+      animations,
+      choicePath,
+      choiceSplit,
+      choiceQuestion,
+      choices,
+      choiceImages,
       audio,
+      text,
       pageType,
       storyId,
     } = item
     const page = new Page({
       pageNumber,
       backgroundImage,
-      animationImages,
+      backgroundColor,
+      animations,
+      choicePath,
+      choiceSplit,
+      choiceQuestion,
+      choices,
+      choiceImages,
       audio,
+      text,
       pageType,
       storyId,
     })
@@ -28,11 +42,12 @@ const create = async (req, res) => {
 }
 
 const getPage = async (req, res) => {
-  const { storyId, pageNumber } = req.params
+  const { storyId, pageNumber, choicePath } = req.params
   try {
     const page = await Page.findOne({
       storyId: storyId,
       pageNumber: pageNumber,
+      choicePath: choicePath,
     })
     res.status(200).json(page)
   } catch (error) {

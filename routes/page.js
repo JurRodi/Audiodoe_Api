@@ -4,6 +4,6 @@ const pageController = require('../controllers/pageController')
 const auth = require('../middleware/auth')
 
 router.post('/create', auth, pageController.create)
-router.get('/:storyId/:pageNumber', auth, pageController.getPage)
+router.get('/:storyId/:pageNumber/:choicePath', auth, pageController.getPage)
 
 module.exports = router

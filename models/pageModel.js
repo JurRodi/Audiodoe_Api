@@ -1,17 +1,23 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const EPageType = {
-  display: 'display',
-  animation: 'animation',
-  choise: 'choise',
-}
 
 const pageSchema = new Schema({
   pageNumber: { type: Number, required: true },
-  backgroundImage: { type: String, required: true },
-  animationImages: { type: Array },
+  backgroundImage: { type: String },
+  backgroundColor: { type: String },
+  animations: { type: Array },
+  choicePath: { type: String, required: true },
+  choiceSplit: { type: Boolean, required: true },
+  choiceQuestion: { type: String },
+  choices: { type: Array },
+  choiceImages: { type: Array },
   audio: { type: String },
-  pageType: { type: String, EPageType, default: EPageType.display },
+  text: { type: String },
+  pageType: {
+    type: String,
+    enum: ['Display', 'Interaction', 'Choice'],
+    required: true,
+  },
   storyId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Story',
