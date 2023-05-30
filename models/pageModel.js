@@ -11,6 +11,7 @@ const pageSchema = new Schema({
   choiceQuestion: { type: String },
   choices: { type: Array },
   choiceImages: { type: Array },
+  instructionsTitle: { type: String },
   audio: { type: String },
   text: { type: String },
   pageType: {
