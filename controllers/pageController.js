@@ -11,12 +11,14 @@ const create = async (req, res) => {
       choiceSplit,
       choiceQuestion,
       choices,
-      choiceImages,
+      choiceImage1,
+      choiceImage2,
       instructionsTitle,
       audio,
       text,
       pageType,
       storyId,
+      interaction,
     } = item
     const page = new Page({
       pageNumber,
@@ -27,18 +29,20 @@ const create = async (req, res) => {
       choiceSplit,
       choiceQuestion,
       choices,
-      choiceImages,
+      choiceImage1,
+      choiceImage2,
       instructionsTitle,
       audio,
       text,
       pageType,
       storyId,
+      interaction,
     })
     try {
       await page.save()
       res.status(201).json({ message: 'pages created' })
     } catch (error) {
-      res.status(400).json({ message: 'pages not created' })
+      res.status(400).json({ message: 'pages not created', error: error })
     }
   })
 }
