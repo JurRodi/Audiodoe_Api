@@ -2,6 +2,7 @@ const whiteList = [
   'http://localhost:4201',
   'http://localhost:4202',
   'https://app.audiodoe.com',
+  'https://backoffice.audiodoe.com',
 ]
 
 const corsOptions = {
