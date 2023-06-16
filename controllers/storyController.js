@@ -23,7 +23,7 @@ const create = async (req, res) => {
   })
   try {
     await story.save()
-    res.status(201).json({ message: 'story created' })
+    res.status(201).json({ message: 'story created', storyId: story._id })
   } catch (error) {
     res.status(400).json({ message: 'story not created' })
   }
