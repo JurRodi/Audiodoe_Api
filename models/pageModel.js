@@ -26,7 +26,7 @@ const pageSchema = new Schema({
     required: true,
   },
   interaction: {
-    type: { type: String, enum: ['Colorize'] },
+    type: { type: String, enum: ['Colorize', 'Collect'] },
     backgroundImage: { type: String },
     backgroundColor: { type: String },
     clickable: {
@@ -35,6 +35,14 @@ const pageSchema = new Schema({
       shape: { type: String },
     },
   },
+  audioFileName: { type: String },
+  animationFileName: { type: String },
+  hasPageNumberChanged: { type: Boolean },
+  choiceImage1FileName: { type: String },
+  choiceImage2FileName: { type: String },
+  startInteraction: { type: String },
+  bgImageFileName: { type: String },
+  clickableFileName: { type: String },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 })
